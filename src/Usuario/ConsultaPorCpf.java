@@ -1,16 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Usuario;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author muril
- */
 public class ConsultaPorCpf {
-    public static String Consultar(ArrayList<Usuario> listaUsuario, String cpfBusca){
+    public static String Consultar(ArrayList<Usuario> listaUsuario){
+        String cpfBusca;
+        cpfBusca = JOptionPane.showInputDialog("Informe o cpf para busca.\n");
+        if(!ValidadorCPF.isCPF(cpfBusca))
+            return "Cpf informado não é valido.\n";
         String dados;
         for(Usuario u: listaUsuario){
             if(u.getCpf().equals(cpfBusca)){
