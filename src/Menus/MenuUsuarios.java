@@ -1,7 +1,6 @@
 package Menus;
 
 import javax.swing.JOptionPane;
-import Usuario.CadastrarUsuarios;
 import java.util.ArrayList;
 import Usuario.*;
 
@@ -46,7 +45,7 @@ public enum MenuUsuarios{
         return menu;
     }
     
-    public static void exibir(ArrayList<Usuario> usuarios){
+    public static void exibir(ArrayList<Usuario> listaUsuarios){
         int opcao = -1;
 
         do {
@@ -70,21 +69,24 @@ public enum MenuUsuarios{
             }
             switch (selecionado) {
                 case CADASTRAR_NOVO_USUÁRIO -> {
-                    CadastrarUsuarios.cadastrar(usuarios);
-                }
-                case CONSULTAR_POR_CPF -> {
                     System.out.println("A ser implementado");
-                    // MenuFerramentas.exibir(usuarios);
+                    // MenuUsuarios.exibir(usuarios);
+                    }
+                case CONSULTAR_POR_CPF -> {
+                    String result = ConsultaPorCpf.Consultar(listaUsuarios);
+                    if(result != null)
+                        System.out.println(result);
+                    else
+                        System.out.println("Cpf não encontrado.\n");
                 }
                 case EDITAR_CADASTRO -> {
-                    System.out.println("A ser implementado");
-                    // MenuAlugueis.exibir(usuarios);
+                    EditarUsuario.Editar(listaUsuarios);
                 }
                 case EXCLUIR_USUÁRIO -> {
                     System.out.println("A ser implementado");
                 }
                 case LISTAR_TODOS -> {
-                    System.out.println("A ser implementado");
+                    ListarUsuarios.Listar(listaUsuarios);
                 }
                 case VOLTAR -> JOptionPane.showMessageDialog(null, "Voltando ao menu princípal");
             }
