@@ -75,7 +75,7 @@ public enum MenuPrincipal {
                 MenuUsuarios.exibir(usuarios);
             }
             case GERENCIAR_FERRAMENTAS -> {
-                MenuFerramentas.exibir();
+                MenuFerramentas.exibir(usuarios);
             }
             case GERENCIAR_ALUGUEIS -> {
                 MenuAlugueis.exibir();

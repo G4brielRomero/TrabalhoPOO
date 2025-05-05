@@ -26,7 +26,11 @@ public class Usuario {
     public String getCpf() {
         return cpf;
     }
-
+    
+    public ArrayList<Ferramenta> getListaDeFerramentas() {
+        return listaDeFerramentas;
+    }
+    
     public void setNome(String nome) {
         this.nome = nome;
     }

@@ -1,6 +1,9 @@
 package Menus;
 
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import Usuario.*;
+import Ferramenta.*;
 
 public enum MenuFerramentas{
     CADASTRAR_NOVA_FERRAMENTA(1, "Cadastro de Nova Ferramenta"),
@@ -43,7 +46,7 @@ public enum MenuFerramentas{
         return menu;
     }
     
-    public static void exibir(){
+    public static void exibir(ArrayList<Usuario> listaUsuarios){
         int opcao = -1;
 
         do {
@@ -67,8 +70,8 @@ public enum MenuFerramentas{
             }
             switch (selecionado) {
                 case CADASTRAR_NOVA_FERRAMENTA -> {
-                System.out.println("A ser implementado");
-                // MenuUsuarios.exibir(usuarios);
+                    System.out.println("A ser implementado");
+                    CadastrarFerramenta.CadastrarNovaFerramenta(listaUsuarios);
                 }
                 case BUSCAR_POR_NOME_CÓDIGO -> {
                     System.out.println("A ser implementado");
@@ -79,7 +82,7 @@ public enum MenuFerramentas{
                     // MenuAlugueis.exibir(usuarios);
                 }
                 case ATUALIZAR_STATUS -> {
-                    System.out.println("A ser implementado");
+                    AlterarStatus.alteracaoStatus(listaUsuarios);
                 }
                 case LISTAR_DISPONÍVEIS -> {
                     System.out.println("A ser implementado");

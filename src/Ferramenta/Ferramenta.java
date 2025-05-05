@@ -7,13 +7,15 @@ public class Ferramenta {
     private double precoPorDia;
     private String categoria;
     private String status;
+    private String cpfDono;
     private boolean disponivel = true;
 
-    public Ferramenta(String nome, String descricao, double precoPorDia, String categoria, String status) {
+    public Ferramenta(String nome, String descricao, double precoPorDia, String categoria, String status, String cpfDono) {
         this.nome = nome;
         this.descricao = descricao;
         this.precoPorDia = precoPorDia;
         this.categoria = categoria;
+        this.cpfDono = cpfDono;
         this.status = status;
     }
 
@@ -36,6 +38,15 @@ public class Ferramenta {
     public String getStatus() {
         return status;
     }
+    
+    public String getCpfDono() {
+        return cpfDono;
+    }
+
+    public void setCpfDono(String cpfDono) {
+        this.cpfDono = cpfDono;
+    }
+
 
     public void setNome(String nome) {
         this.nome = nome;
