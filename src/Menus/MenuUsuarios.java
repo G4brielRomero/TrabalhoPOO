@@ -69,21 +69,30 @@ public enum MenuUsuarios{
             }
             switch (selecionado) {
                 case CADASTRAR_NOVO_USUÁRIO -> {
-                    System.out.println("A ser implementado");
-                    // MenuUsuarios.exibir(usuarios);
-                    }
+                    CadastrarUsuario.cadastrar(listaUsuarios);
+                }
                 case CONSULTAR_POR_CPF -> {
-                    String result = ConsultaPorCpf.Consultar(listaUsuarios);
-                    if(result != null)
-                        System.out.println(result);
-                    else
-                        System.out.println("Cpf não encontrado.\n");
+                    for (Usuario u : listaUsuarios) {
+                        System.out.println("Usuário: " + u.exibirUsuario());
+                    }
+                    String cpf = JOptionPane.showInputDialog("Insira o CPF: ");
+                    if (cpf != null) {
+                        String resultado = ConsultaPorCpf.Consultar(cpf, listaUsuarios);
+                        if (resultado != null) {
+                            JOptionPane.showMessageDialog(null, resultado, "Resultado da Consulta", JOptionPane.INFORMATION_MESSAGE);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "CPF não encontrado.", "Resultado da Consulta", JOptionPane.WARNING_MESSAGE);
+                        }
+
+                    }
                 }
                 case EDITAR_CADASTRO -> {
                     EditarUsuario.Editar(listaUsuarios);
                 }
                 case EXCLUIR_USUÁRIO -> {
-                    System.out.println("A ser implementado");
+                    String cpf = JOptionPane.showInputDialog("Insira o CPF: ");
+                    ExcluirUsuario.excluirPorCpf(cpf, listaUsuarios);
+                    
                 }
                 case LISTAR_TODOS -> {
                     ListarUsuarios.Listar(listaUsuarios);
